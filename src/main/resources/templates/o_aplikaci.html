@@ -1,0 +1,115 @@
+<html lang="cs-cz" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title th:text="${pageTitle}"></title>
+</head>
+<body>
+
+<section class="jumbotron jumbotron-fluid">
+    <div class="container py-3">
+        <nav class="navbar navbar-expand-md bg-dark py-3">
+            <div class="container-fluid">
+                <a th:href="@{/index}" class="navbar-brand btn btn-outline-secondary text-white">PojištěníApp</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#obsah-navigacni-listy">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-center" id="obsah-navigacni-listy">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a th:href="@{/o_aplikaci}" class="nav-link text-white active">O aplikaci</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-white">Moje pojištění</a>
+                        </li>
+                        <li class="nav-item">
+                            <a th:href="@{/prehled_pojisteni}" class="nav-link text-white">Pojištění</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-white">Historie plateb</a>
+                        </li>
+                        <li class="nav-item">
+                            <a th:href="@{/udalosti}" class="nav-link text-white">Události</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="collapse navbar-collapse justify-content-end" id="administrace-uctu">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <button class="btn btn-outline-secondary text-white" type="submit">Přihlásit</button>&nbsp;
+                        </li>
+                        <li class="nav-item">
+                            <button class="btn btn-outline-secondary text-white" type="submit">Registrovat</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</section>
+
+<section class="jumbotron jumbotron-fluid">
+    <div class="container py-4 d-flex justify-content-start">
+        <h4 style="align-content: middle;"><strong>Vítejte na stránkách Vaší aplikace PojištěníApp</strong></h4><br>
+    </div>
+    <div class="container py-2 d-flex justify-content-start">
+        <h5 style="align-content: middle;">Po přihlášení nebo registraci svého profilu v aplikaci si můžete snadno a rychle prohlížet detaily svého pojištění, historii plateb, nebo také získat detailní informace o nabízených typech pojištění</h5><br>
+    </div>
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container py-3">
+            <div class="row py-3 bg-light">
+                <div class="col-3">
+                    <div class="card bg-light">
+                        <img th:src="@{/images/myList.jpg}" class="align-content:middle;" alt="muj-seznam">
+                        <div class="card-body" style="height: 225px;">
+                            <h4><strong>Moje pojištění</strong></h4>
+                            <p class="card-text" style="text-align: justify;">Prohlížejte svoje sjednané smlouvy o pojištění majetku, domácnosti, bytu, životního pojištení, nebo také svého vozidla</p>
+                            <a class="btn btn-secondary text-white" href="#">Moje smlouvy</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-3">
+                    <div class="card bg-light">
+                        <img th:src="@{/images/handshake.jpg}" class="align-content: middle;" alt="handshake">
+                        <div class="card-body" style="height: 225px;">
+                            <h4><strong>Pojištění</strong></h4>
+                            <p class="card-text" style="text-align: justify;">Prohlížejte nabízené typy pojištění naší pojišťovny a vyberte si to, které bude nejlépe vyhovovat Vašim požadavkům</p>
+                            <a class="btn btn-secondary text-white" th:href="@{/prehled_pojisteni}">Nabízené pojištění</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-3">
+                    <div class="card bg-light">
+                        <img th:src="@{/images/payment.jpg}" class="align-content: middle;" alt="payment">
+                        <div class="card-body" style="height: 225px;">
+                            <h4><strong>Historie plateb</strong></h4>
+                            <p class="card-text" style="text-align: justify;">Prohlížejte si své platby chronologicky seřazené od data sjednání svého pojištění. Veškerou historii plateb naleznete pod odkazem níže</p>
+                            <a class="btn btn-secondary text-white" href="#">Moje platby</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-3">
+                    <div class="card bg-light">
+                        <img th:src="@{/images/crash.jpg}" class="align-content: middle;" style="height: 300px;" alt="crash">
+                        <div class="card-body" style="height: 228px;">
+                            <h4><strong>Události</strong></h4>
+                            <p class="card-text" style="text-align: justify;">Prohlížejte si své existující pojistné události, nebo také přidejte novou pojistnou událost v případě poškození nebo žádosti o náhradu</p>
+                            <a class="btn btn-secondary text-white" th:href="@{/udalosti}">Moje události</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

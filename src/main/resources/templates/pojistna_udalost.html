@@ -1,0 +1,229 @@
+<html lang="cs-cz" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Pojistná událost</title>
+</head>
+<body>
+
+<section class="jumbotron jumbotron-fluid">
+    <div class="container py-3">
+        <nav class="navbar navbar-expand-md bg-dark py-3">
+            <div class="container-fluid">
+                <a th:href="@{/index}" class="navbar-brand btn btn-outline-secondary text-white">PojištěníApp</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#obsah-navigacni-listy">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-center" id="obsah-navigacni-listy">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a th:href="@{/o_aplikaci}" class="nav-link text-white" >O aplikaci</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-white">Moje pojištění</a>
+                        </li>
+                        <li class="nav-item">
+                            <a th:href="@{/prehled_pojisteni}" class="nav-link text-white">Pojištění</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-white">Historie plateb</a>
+                        </li>
+                        <li class="nav-item">
+                            <a th:href="@{/udalosti}" class="nav-link text-white">Události</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="collapse navbar-collapse justify-content-end" id="administrace-uctu">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <button class="btn btn-outline-secondary text-white" type="submit">Přihlásit</button>&nbsp;
+                        </li>
+                        <li class="nav-item">
+                            <button class="btn btn-outline-secondary text-white" type="submit">Registrovat</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</section>
+
+<section class="jumbotron jumbotron-fluid">
+    <div class="container py-4 d-flex justify-content-start">
+        <h4 style="align-content: middle;"><strong>Žádost o nahrazení škody k pojistné události</strong></h4>
+    </div>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container py-2">
+            <div class="card py-2 bg-light">
+                <div class="card-body">
+                    <h5 class="card-title py-1"><strong>Údaje pojištěnce</strong>
+                        <span class="h6"><small>(*vyplňte všechna pole níže ke kompletní zprávě pojistné události)</small></span>
+                    </h5><br>
+                    <div class="row">
+                        <div class="col-4">
+                            <form>
+                                <div>
+                                    <label ><strong>Jméno</strong></label>
+                                    <input type="jmeno" class="form-control" placeholder="Vaše křestní jméno">
+                                </div>
+                                <div class="py-3">
+                                    <label ><strong>Číslo OP / cestovního dokladu</strong></label>
+                                    <input type="cislo-dokladu" class="form-control" placeholder="Váš doklad">
+                                </div>
+                                <div>
+                                    <label ><strong>Adresa trvalého bydliště</strong></label>
+                                    <input type="adresa-bydliste" class="form-control" placeholder="Vaše adresa">
+                                </div>
+                                <div class="py-3">
+                                    <label ><strong>Rozsah škody</strong></label>
+                                    <input type="rozsah-skody" class="form-control" placeholder="Rozsah škody v Kč">
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="col-4">
+                            <form>
+                                <div>
+                                    <label ><strong>Příjmení</strong></label>
+                                    <input type="prijmeni" class="form-control" placeholder="Vaše příjmení">
+                                </div>
+                                <div class="py-3">
+                                    <label ><strong>Telefonní číslo</strong></label>
+                                    <input type="telefonni-cislo" class="form-control" placeholder="Vaše telefonní číslo">
+                                </div>
+                                <div>
+                                    <label ><strong>Číslo pojistné smlouvy</strong></label>
+                                    <input type="cislo-smlouvy" class="form-control" placeholder="Číslo Vaší pojistné smlouvy">
+                                </div>
+                                <div class="py-3">
+                                    <label ><strong>Místo vzniklé škody</strong></label>
+                                    <input type="datum-zadosti" class="form-control" placeholder="Místo události">
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="col-4">
+                            <form>
+                                <div>
+                                    <label ><strong>Datum narození</strong></label>
+                                    <input type="datum-narozeni" class="form-control" placeholder="Váš datum narození">
+                                </div>
+                                <div class="py-3">
+                                    <label ><strong>Emailová adresa</strong></label>
+                                    <input type="emailova-adresa" class="form-control" placeholder="Váš email">
+                                </div>
+                                <div>
+                                    <label ><strong>Datum a čas vzniklé škody</strong></label>
+                                    <input type="datum-vznikle-skody" class="form-control" placeholder="Kdy se škoda stala">
+                                </div>
+                                <div class="py-3">
+                                    <label ><strong>Datum podání žádosti</strong></label>
+                                    <input type="misto-skody" class="form-control" placeholder="Dnešní datum">
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="col-12">
+                            <form>
+                                <div>
+                                    <label ><strong>Příčina vzniklé škody</strong></label>
+                                    <textarea class="form-control" name="vznikla-skoda" rows="10" placeholder="Popište příčinu vzniklé škody"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                    </div><br>
+
+                    <h5 class="card-title py-1"><strong>Údaje poškozeného</strong>
+                        <span class="h6"><small>(*vyplňte pouze v případě, že došlo k dopravní nehodě)</small></span>
+                    </h5><br>
+
+                    <div class="row">
+                        <div class="col-4">
+                            <form>
+                                <div>
+                                    <label><strong>Jméno</strong></label>
+                                    <input type="jmeno" class="form-control" placeholder="Vaše křestní jméno">
+                                </div>
+                                <div class="py-3">
+                                    <label><strong>Číslo OP / cestovního dokladu</strong></label>
+                                    <input type="cislo-dokladu" class="form-control" placeholder="Váš doklad">
+                                </div>
+                                <div>
+                                    <label><strong>Adresa trvalého bydliště</strong></label>
+                                    <input type="adresa-bydliste" class="form-control" placeholder="Vaše adresa">
+                                </div>
+                                <div class="py-3">
+                                    <label><strong>Rozsah škody</strong></label>
+                                    <input type="rozsah-skody" class="form-control" placeholder="Rozsah škody v Kč">
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="col-4">
+                            <form>
+                                <div>
+                                    <label><strong>Příjmení</strong></label>
+                                    <input type="prijmeni" class="form-control" placeholder="Vaše příjmení">
+                                </div>
+                                <div class="py-3">
+                                    <label><strong>Telefonní číslo</strong></label>
+                                    <input type="telefonni-cislo" class="form-control" placeholder="Vaše telefonní číslo">
+                                </div>
+                                <div>
+                                    <label><strong>Číslo pojistné smlouvy</strong></label>
+                                    <input type="cislo-smlouvy" class="form-control" placeholder="Číslo Vaší pojistné smlouvy">
+                                </div>
+                                <div class="py-3">
+                                    <label><strong>Místo vzniklé škody</strong></label>
+                                    <input type="datum-zadosti" class="form-control" placeholder="Místo události">
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="col-4">
+                            <form>
+                                <div>
+                                    <labe><strong>Datum narození</strong></labe>
+                                    <input type="datum-narozeni" class="form-control" placeholder="Váš datum narození">
+                                </div>
+                                <div class="py-3">
+                                    <label><strong>Emailová adresa</strong></label>
+                                    <input type="emailova-adresa" class="form-control" placeholder="Váš email">
+                                </div>
+                                <div>
+                                    <label><strong>Datum a čas vzniklé škody</strong></label>
+                                    <input type="datum-vznikle-skody" class="form-control" placeholder="Kdy se škoda stala">
+                                </div>
+                                <div class="py-3">
+                                    <label><strong>Datum podání žádosti</strong></label>
+                                    <input type="pricina-skody" class="form-control" placeholder="Dnešní datum">
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="col-12">
+                            <form>
+                                <div>
+                                    <label><strong>Příčina vzniklé škody</strong></label>
+                                    <textarea class="form-control" name="vznikla-skoda" rows="10" placeholder="Popište příčinu vzniklé škody"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="container-fluid py-2">
+                        <button class="btn btn-primary">Odeslat žádost</button>
+                        <a class="btn btn-danger m-1" href="udalosti.html">Zrušit žádost</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><br>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

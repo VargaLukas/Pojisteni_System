@@ -1,0 +1,221 @@
+<html lang="cs-cz" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Pojištění bytu</title>
+</head>
+<body>
+
+<section class="jumbotron jumbotron-fluid">
+    <div class="container py-3">
+        <nav class="navbar navbar-expand-md bg-dark py-3">
+            <div class="container-fluid">
+                <a th:href="@{/index}" class="navbar-brand btn btn-outline-secondary text-white">PojištěníApp</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#obsah-navigacni-listy">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-center" id="obsah-navigacni-listy">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a th:href="@{/o_aplikaci}" class="nav-link text-white">O aplikaci</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-white active">Moje pojištění</a>
+                        </li>
+                        <li class="nav-item">
+                            <a th:href="@{/prehled_pojisteni}" class="nav-link text-white">Pojištění</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-white">Historie plateb</a>
+                        </li>
+                        <li class="nav-item">
+                            <a th:href="@{/udalosti}" class="nav-link text-white">Události</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="collapse navbar-collapse justify-content-end" id="administrace-uctu">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <button class="btn btn-outline-secondary text-white" type="submit">Přihlásit</button>&nbsp;
+                        </li>
+                        <li class="nav-item">
+                            <button class="btn btn-outline-secondary text-white" type="submit">Registrovat</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</section>
+
+<section class="jumbotron jumbotron-fluid">
+    <div class="container py-2">
+        <div class="card">
+            <h4 class="card-header"><strong>Přehled nabízeného pojištění dle typu</strong></h4>
+            <div class="card-body">
+                <a class="btn btn-secondary text-white m-auto" type="button" th:href="@{/pojisteni_majetku}">Pojištění majetku</a>
+                <a class="btn btn-secondary text-white m-1" type="button" th:href="@{/pojisteni_domacnosti}">Pojištění domácnosti</a>
+                <a class="btn btn-secondary text-white m-auto active" type="button" href="#">Pojištění bytu</a>
+                <a class="btn btn-secondary text-white m-1" type="button" th:href="@{/zivotni_pojisteni}">Životní pojištění</a>
+                <a class="btn btn-secondary text-white" type="button" th:href="@{/pojisteni_vozidla}">Pojištění vozidla</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container py-2">
+        <div class="card">
+            <h5 class="card header p-2 bg-light"><strong>Pojištění bytu:</strong></h5>
+            <div class="card-body">
+                <p style="text-align: justify;">Pojištění bytu spadá do kategorie pojištění nemovistosti a zajišťuje pomoc v situacích,
+                    jako je požár, výbuch, úder blesku, poškození vodovodu, zatečení srážek, krádež i vandalismus. Pojištění nemovitosti /
+                    bytu chrání vše, co je součástí vybavení domácnosti - stěny, okna, podlahy, dveře nebo také kotel. Pojistit lze také
+                    vedlejší stavby, které mohou být součástí domácnosti jako například garáž, bazén, nebo sauna.
+                    Pro více informací o nabízených službách pojištění majetku, viz tabulka níže.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container py-2">
+        <div class="card">
+            <h5 class="card-header p-2"><strong>Přehled limitů balíčků pro pojištění obývané domácnosti / bytu</strong></h5>
+            <div class="card-body">
+                <table class="table table-border">
+                    <thead>
+                    <tr style="height: 50px; vertical-align: middle;">
+                        <td class="h4"><strong>Sjednané služby</strong></td>
+                        <td class="h4"><strong>Ideal</strong></td>
+                        <td class="h4"><strong>Excelent</strong></td>
+                        <td class="h4"><strong>VIP</strong></td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr style="height: 100px; vertical-align: middle;">
+                        <td><h5><strong>Vytopení sousedů:</strong></h5> přetékající vana, umyvadlo, prasklá hadička, apod.</td>
+                        <td>max. 30 tis. Kč</td>
+                        <td>max. 60 tis. Kč</td>
+                        <td><img th:src="@{/images/tick.png}" style="width: 45px;" alt="tick"></td>
+                    </tr>
+                    <tr style="height: 100px; vertical-align: middle;">
+                        <td><h5><strong>Požár a výbuch:</strong></h5> požár, výbuch, imploze, kouř</td>
+                        <td>max. 40 tis. Kč</td>
+                        <td>max. 100 tis. Kč</td>
+                        <td><img th:src="@{/images/tick.png}" style="width: 45px;" alt="tick"></td>
+                    </tr>
+                    <tr style="height: 100px; vertical-align: middle;">
+                        <td><h5><strong>Zabouchnuté klíče:</strong></h5> akutné situace jako havárie plynu, vody a pod.</td>
+                        <td><img th:src="@{/images/tick.png}" style="width: 45px;" alt="tick"></td>
+                        <td><img th:src="@{/images/tick.png}" style="width: 45px;" alt="tick"></td>
+                        <td><img th:src="@{/images/tick.png}" style="width: 45px;" alt="tick"></td>
+                    </tr>
+                    <tr style="height: 100px; vertical-align: middle;">
+                        <td><h5><strong>Pojištění na blbost:</strong></h5> odpovědnost všech členů domácnosti v případě rozbití vybavení apod.</td>
+                        <td><img th:src="@{/images/tick.png}" style="width: 45px;" alt="tick"></td>
+                        <td><img th:src="@{/images/tick.png}" style="width: 45px;" alt="tick"></td>
+                        <td><img th:src="@{/images/tick.png}" style="width: 45px;" alt="tick"></td>
+                    </tr>
+                    <tr style="height: 100px; vertical-align: middle;">
+                        <td><h5><strong>Krádež:</strong></h5> krádež jakéhokoliv vybavení včetně spotřebičů, nebo cenností</td>
+                        <td>max. 30 tis. Kč</td>
+                        <td>max. 75 tis. Kč</td>
+                        <td><img th:src="@{/images/tick.png}" style="width: 45px;" alt="tick"></td>
+                    </tr>
+                    <tr style="height: 100px; vertical-align: middle;">
+                        <td><h5><strong>Zkrat elektroniky:</strong></h5> zkrat spotřebičů jako laptop, televize, mikrovlnka, pračka, myčka a pod.</td>
+                        <td>max. 25 tis. Kč</td>
+                        <td>max. 100 tis. Kč</td>
+                        <td><img th:src="@{/images/tick.png}" style="width: 45px;" alt="tick"></td>
+                    </tr>
+                    <tr style="height: 100px; vertical-align: middle;">
+                        <td><h5><strong>Rozbité vybavení majitele:</strong></h5> v případě poškození / zničení původního vybavení bytu majitele</td>
+                        <td>mx. 45 tis. Kč</td>
+                        <td>max. 60 tis. Kč</td>
+                        <td><img th:src="@{/images/tick.png}" style="width: 45px;" alt="tick"></td>
+                    </tr>
+                    <tr style="height: 100px; vertical-align: middle;">
+                        <td><h5><strong>Elektřina:</strong></h5> zkrat, přepětí, podpětí, krádež elektrické energie</td>
+                        <td>max. 30 tis. Kč</td>
+                        <td>max. 100 tis. Kč</td>
+                        <td>max. 200 tis. Kč</td>
+                    </tr>
+                    <tr style="height: 100px; vertical-align: middle;">
+                        <td><h5><strong>Náhradní ubytování:</strong></h5> náhradní ubytování v případě škody</td>
+                        <td>max. 50 tis. Kč</td>
+                        <td>max. 100 tis. Kč</td>
+                        <td><img th:src="@{/images/tick.png}" style="width: 45px;" alt="tick"></td>
+                    </tr>
+                    <tr style="height: 100px; vertical-align: middle;">
+                        <td><h5><strong>Skla a sanitární zařízení:</strong></h5> rozbití skla nepojištěným nebezpečím</td>
+                        <td>max. 30 tis. Kč</td>
+                        <td>max. 50 tis. Kč</td>
+                        <td>max. 200 tis. Kč</td>
+                    </tr>
+                    <tr style="height: 100px; vertical-align: middle;">
+                        <td><h5><strong>Vyklizovací a bourací náklady:</strong></h5> náklady na nezbytné stržení dosud stojících částí pojištěné věci</td>
+                        <td>max. 100 tis. Kč</td>
+                        <td>max. 100 tis. Kč</td>
+                        <td>max. 100 tis. Kč</td>
+                    </tr>
+                    <tr style="height: 100px; vertical-align: middle;">
+                        <td><h5><strong>Strojní a elektronická rizika:</strong></h5> náhlé a nahodilé poškození nebo zničení pevně zabudovaných strojních stavebních součástí</td>
+                        <td><img th:src="@{/images/cross.png}" style="width: 45px;" alt="cross"></td>
+                        <td><img th:src="@{/images/cross.png}" style="width: 45px;" alt="cross"></td>
+                        <td>max. 50 tis. Kč</td>
+                    </tr>
+                    <tr style="height: 100px; vertical-align: middle;">
+                        <td><h5><strong>Odcizení materiálu:</strong></h5>  odcizení stavebních součástí, odcizení materiálu a techniky krádeží; vloupáním nebo loupeží</td>
+                        <td>max. 50 tis. Kč</td>
+                        <td>max. 100 tis. Kč</td>
+                        <td>max. 500 tis. Kč</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <div class="container py-3">
+                    <button class="btn btn-primary m-1">Zadat poptávku</button>
+                    <a class="btn btn-danger m-1" th:href="@{/prehled_pojisteni}">Zrušit náhled</a>
+                </div><br>
+
+                <section class="jumbotron jumbotron-fluid">
+                    <div class="container py-3">
+                        <nav aria-label="Stránkování">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item">
+                                    <a class="page-link text-center" th:href="@{/pojisteni_domacnosti}" tabindex="-1" style="width: 100px;">Předchozí</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" th:href="@{/pojisteni_majetku}">1</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" th:href="@{/pojisteni_domacnosti}">2 <span class="sr-only"></span></a>
+                                </li>
+                                <li class="page-item active">
+                                    <a class="page-link" href="#">3</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" th:href="@{/zivotni_pojisteni}">4</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" th:href="@{/pojisteni_vozidla}">5</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link text-center" th:href="@{/zivotni_pojisteni}" style="width: 90px;">Další</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

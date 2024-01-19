@@ -1,0 +1,174 @@
+<html lang="cs-cz" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+	<title>Editovat pojištěnce</title>
+</head>
+<body>
+<section class="jumbotron jumbotron-fluid">
+	<div class="container py-3">
+		<nav class="navbar navbar-expand-md bg-dark py-3">
+			<div class="container-fluid">
+				<a th:href="@{/index}" class="navbar-brand btn btn-outline-secondary text-white">PojištěníApp</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#obsah-navigacni-listy">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse justify-content-center" id="obsah-navigacni-listy">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item">
+							<a th:href="@{/o_aplikaci}" class="nav-link text-white">O aplikaci</a>
+						</li>
+						<li class="nav-item">
+							<a th:href="@{/uzivatele}" class="nav-link text-white active">Pojištěnci</a>
+						</li>
+						<li class="nav-item">
+							<a th:href="@{/pojisteni_list}" class="nav-link text-white">Pojištění</a>
+						</li>
+						<li class="nav-item">
+							<a th:href="@{/create_pojisteni}" class="nav-link text-white active">Nové pojištění</a>
+						</li>
+						<li class="nav-item">
+							<a th:href="@{/udalosti}" class="nav-link text-white">Události</a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="collapse navbar-collapse justify-content-end" id="administrace-uctu">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item">
+							<button class="btn btn-outline-secondary text-white" type="submit">Admin</button>&nbsp;
+						</li>
+						<li class="nav-item">
+							<button class="btn btn-outline-secondary text-white" type="submit">Registrovat</button>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</div>
+</section>
+
+<section class="jumbotron jumbotron-fluid">
+	<div class="container py-2">
+		<p class="h4"><strong>Editovat pojištěnce</strong></p><br>
+		<div class="card bg-light">
+			<div class="card-body">
+				<form th:action="@{/uzivatele/{id} (id=${uzivatel.id})}" th:object = "${uzivatel}" method="POST">
+					<div class="row">
+						<div class="col-6">
+							<div class="form-group">
+								<label><strong>Jméno</strong></label>
+								<input
+										type="text"
+										name ="jmeno"
+										th:field = "*{jmeno}"
+										class="form-control"
+										placeholder="Křestní jméno"
+								/>
+							</div>
+							<div class="form-group py-3">
+								<label><strong>Email</strong></label>
+								<input
+										type="email"
+										name ="email"
+										th:field = "*{email}"
+										class="form-control"
+										placeholder="email@domena.cz"
+								/>
+							</div>
+							<div class="form-group py-2">
+								<label ><strong>Ulice a číslo popisné</strong></label>
+								<input
+										type="text"
+										name = "ulice"
+										th:field = "*{ulice}"
+										class="form-control"
+										placeholder="Ulice a číslo popisné"
+								/>
+							</div>
+
+						<div class="form-group py-2">
+							<label><strong>Pohlaví</strong></label><br>
+							<input
+									class="form-check-input"
+									type="radio"
+									name="pohlavi"
+									value="muz"
+									th:checked="${uzivatel.pohlavi == 'muz'}"
+									required
+							/>
+							<label class="form-check-label">
+								Muž
+							</label>&nbsp;
+							<input
+									class="form-check-input"
+									type="radio"
+									name="pohlavi"
+									value = "zena"
+									th:checked="${uzivatel.pohlavi == 'zena'}"
+							/>
+							<label class="form-check-label">
+								Žena
+							</label>
+						</div>
+						</div>
+
+						<div class="col-6">
+							<div class="form-group">
+								<label><strong>Příjmení</strong></label>
+								<input
+										type="text"
+										name = "prijmeni"
+										th:field = "*{prijmeni}"
+										class="form-control"
+										placeholder="Příjmení"
+								/>
+							</div>
+							<div class="form-group py-3">
+								<label><strong>Telefon</strong></label>
+								<input
+										type="text"
+										name="telefon"
+										th:field = "*{telefon}"
+										class="form-control"
+										placeholder="Telefonní číslo"
+								/>
+							</div>
+							<div class="form-group py-2">
+								<label><strong>Město</strong></label>
+								<input
+										type="text"
+										name="mesto"
+										th:field = "*{mesto}"
+										class="form-control"
+										placeholder="Město"
+								/>
+							</div>
+							<div class="form-group py-2">
+								<label><strong>PSČ</strong></label>
+								<input
+										type="number"
+										name="psc"
+										th:field = "*{psc}"
+										class="form-control"
+										placeholder="PSČ"
+								/>
+							</div>
+							<div class="col">
+								<div class="py-2 justify-content-center">
+									<input class="btn btn-primary" type="submit" value="Uložit" style="width: 115px;"></input>
+								</div>
+							</div> <!-- End od col-6-->
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

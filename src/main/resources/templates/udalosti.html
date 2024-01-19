@@ -1,0 +1,192 @@
+<html lang="cs-cz" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Události</title>
+</head>
+<body>
+
+<section class="jumbotron jumbotron-fluid">
+    <div class="container py-3">
+        <nav class="navbar navbar-expand-md bg-dark py-3">
+            <div class="container-fluid">
+                <a th:href="@{/index}" class="navbar-brand btn btn-outline-secondary text-white">PojištěníApp</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#obsah-navigacni-listy">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-center" id="obsah-navigacni-listy">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a th:href="@{/o_aplikaci}" class="nav-link text-white">O aplikaci</a>
+                        </li>
+                        <li class="nav-item">
+                            <a th:href="@{/uzivatele}" class="nav-link text-white">Pojištěnci</a>
+                        </li>
+                        <li class="nav-item">
+                            <a th:href="@{/prehled_pojisteni}" class="nav-link text-white">Pojištění</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-white">Historie plateb</a>
+                        </li>
+                        <li class="nav-item">
+                            <a th:href="@{/udalosti}" class="nav-link text-white">Události</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="collapse navbar-collapse justify-content-end" id="administrace-uctu">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <button class="btn btn-outline-secondary text-white" type="submit">Přihlásit</button>&nbsp;
+                        </li>
+                        <li class="nav-item">
+                            <button class="btn btn-outline-secondary text-white" type="submit">Registrovat</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</section>
+
+<section class="jumbotron jumbotron-fluid">
+    <div class="container py-4 d-flex justify-content-start">
+        <h4 style="align-content: middle;"><strong>Oznámení pojistné události</strong></h4><br>
+    </div>
+    <div class="container py-2 d-flex justify-content-start">
+        <h5 style="align-content: middle;">Co k oznámení pojistné události / škody budete potřebovat - všechny podklady potřebné k nahlášení pojistné události naleznete v seznamu níže</h5><br>
+    </div>
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container py-2">
+            <div class="row py-3 bg-light">
+
+                <div class="col-2">
+                    <div class="card" style="vertical-align: middle; text-align: center;">
+                        <div class="py-2" style="height: 82px;">
+                            <img th:src="@{/images/tick.png}" class="align-content: middle; m-auto" style="width: 65px;" alt="tick">
+                        </div>
+                        <div class="card-body bg-light" style="height: 215px;">
+                            <p class="card-text" style="text-align: justify;">Číslo pojistné smlouvy, ze které bude Vaše způsobená škoda uplatněna. Číslo své smlouvy naleznete v tištěné podobě v záhlaví dokumentu</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-2">
+                    <div class="card" style="vertical-align: middle; text-align: center;">
+                        <div class="py-2" style="height: 82px;">
+                            <img th:src="@{/images/tick.png}" class="align-content: middle; m-auto" style="width: 65px;" alt="tick">
+                        </div>
+                        <div class="card-body bg-light" style="height: 215px;">
+                            <p class="card-text" style="text-align: justify;">Identifikační údaje pojistníka události / pojištěného události (včetně všech potřebných kontaktních údajů obou zúčastněných stran)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-2">
+                    <div class="card" style="vertical-align: middle; text-align: center;">
+                        <div class="py-2" style="height: 82px;">
+                            <img th:src="@{/images/tick.png}" class="align-content: middle; m-auto" style="width: 65px;" alt="tick">
+                        </div>
+                        <div class="card-body bg-light" style="height: 215px;">
+                            <p class="card-text" style="text-align: justify;">Datum, čas a konkrétní místo vzniku škodní události</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-2">
+                    <div class="card" style="vertical-align: middle; text-align: center;">
+                        <div class="py-2" style="height: 82px;">
+                            <img th:src="@{/images/tick.png}" class="align-content: middle; m-auto" style="width: 65px;" alt="tick">
+                        </div>
+                        <div class="card-body bg-light" style="height: 215px;">
+                            <p class="card-text" style="text-align: justify;">Příčinu škody a důvody žádosti o uhrazení celé pojistné události (detailní popis škodního děje)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-2">
+                    <div class="card" style="vertical-align: middle; text-align: center;">
+                        <div class="py-2" style="height: 82px;">
+                            <img th:src="@{/images/tick.png}" class="align-content: middle; m-auto" style="width: 65px;" alt="tick">
+                        </div>
+                        <div class="card-body bg-light" style="height: 215px;">
+                            <p class="card-text" style="text-align: justify;">Rozsah škody, včetně předpokládané výše (nemusí ale nutně korespondovat s reálnou škodou)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-2">
+                    <div class="card" style="vertical-align: middle; text-align: center;">
+                        <div class="py-2" style="height: 82px;">
+                            <img th:src="@{/images/tick.png}" class="align-content: middle; m-auto" style="width: 65px;" alt="tick">
+                        </div>
+                        <div class="card-body bg-light" style="height: 215px;">
+                            <p class="card-text" style="text-align: justify;">Datum, čas, místo a podpis pojistníka události / pojištěného události</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container py-2">
+                    <div class="py-2">
+                        <a class="btn btn-primary" th:href="@{/nova_udalost}">Nahlásit událost</a>
+                        <a class="btn btn-danger m-1" th:href="@{/o_aplikaci}">Zrušit náhled</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><br>
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container py-4 d-flex justify-content-start">
+            <h4 style="align-content: middle;"><strong>Oznámení škodní pojistné události</strong></h4><br>
+        </div>
+        <div class="container py-2">
+            <div class="row py-4 bg-light">
+
+                <div class="col-4">
+                    <div class="card" style="vertical-align: middle;">
+                        <div class="card-body py-2">
+                            <h5 class="card-title"><strong>On-line prostřednictvím formuláře</strong></h5><br>
+                            <a class="btn btn-primary" th:href="@{/nova_udalost}">Nahlásit událost</a><br>
+                            <div class="py-3">
+                                <p class="card-text" style="text-align: justify;">Nejrychlejší a nejpohodlnější způsob oznámení škodní události. Oznámit škodní událost můžete ihned vyplněním on-line formuláře a také sledovat stav škody a pojistní řízení.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <div class="card" style="vertical-align: middle;">
+                        <div class="card-body py-2" style="height: 237px;">
+                            <h5 class="card-title"><strong>Telefonicky na čísle uvedeném níže</strong></h5><br>
+                            <img th:src="@{/images/phone.jpg}" style="height: 38px;" alt="telefon">&nbsp;<strong class="h4">214 111 114</strong>
+                            <div class="py-3">
+                                <p class="card-text" style="text-align: justify;">Telefonní linka Klientského servisu Vaší Pojišťovny je Vám k dispozici každý pracovní den od 7 do 19 hodin. Naši operátoři Vám rádi poradí a provedou celým procesem hlášení pojistné události.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <div class="card" style="vertical-align: middle;">
+                        <div class="card-body py-2" style="height: 237px;">
+                            <h5 class="card-title"><strong>Písemně na adrese Vaší Pojišťovny</strong></h5><br>
+                            <img th:src="@{/images/list.jpg}" style="height: 38px;" alt="list">&nbsp;<strong><a href="#" class="text-dark">Formulář pro oznámení škodní události</a></strong>
+                            <div class="py-3">
+                                <p class="card-text" style="text-align: justify;">Vyplněný formulář odevzdejte na kterékoliv pobočce nebo odešlete poštou na adresu:</p>
+                                <p><strong>Vaše Pojišťovna a.s., P.O.Box 401, Praha 1, 110 00</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><br>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

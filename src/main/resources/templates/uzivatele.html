@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="cs-cz" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+	<title>Pojištěnci</title>
+</head>
+<body>
+
+<section class="jumbotron jumbotron-fluid">
+	<div class="container py-3">
+		<nav class="navbar navbar-expand-md bg-dark py-3">
+			<div class="container-fluid">
+				<a th:href="@{/index}" class="navbar-brand btn btn-outline-secondary text-white">PojištěníApp</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#obsah-navigacni-listy">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse justify-content-center" id="obsah-navigacni-listy">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item">
+							<a th:href="@{/o_aplikaci}" class="nav-link text-white active">O aplikaci</a>
+						</li>
+						<li class="nav-item">
+							<a th:href="@{/uzivatele}" class="nav-link text-white">Pojištěnci</a>
+						</li>
+						<li class="nav-item">
+							<a th:href="@{/prehled_pojisteni}" class="nav-link text-white">Pojištění</a>
+						</li>
+						<li class="nav-item">
+							<a href="#" class="nav-link text-white">Nové pojištění</a>
+						</li>
+						<li class="nav-item">
+							<a th:href="@{/udalosti}" class="nav-link text-white">Události</a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="collapse navbar-collapse justify-content-end" id="administrace-uctu">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item">
+							<button class="btn btn-outline-secondary text-white" type="submit">Admin</button>&nbsp;
+						</li>
+						<li class="nav-item">
+							<button class="btn btn-outline-secondary text-white" type="submit">Odhlásit se</button>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</div>
+</section>
+
+
+<section class="jumbotron jumbotron-fluid">
+	<div class="container py-2">
+		<p class="h4"><strong>Pojištěnci</strong></p><br>
+		<div class="row justify-content-center" style="height: 65px;">
+			<div class="col-auto">
+				<a th:href = "@{/uzivatele/novy}" class="btn btn-primary justify-content-center">Nový pojištěnec</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="jumbotron jumbotron-fluid">
+	<div class="container py-3">
+		<table class="table table-bordered border border-dark">
+			<thead style="vertical-align: middle;">
+			<tr style="height: 55px;">
+				<!--<th scope="col">ID</th>-->
+				<th scope="col">Jméno a příjmení</th>
+				<th scope="col">Bydliště</th>
+				<th scope="col">Akce</th>
+			</tr>
+			</thead>
+			<tbody style="vertical-align: middle;">
+			<tr th:each = "uzivatel: ${uzivatele}">
+				<!--<td th:text ="${uzivatel.id}"></td>-->
+				<td th:text = "${uzivatel.jmeno} + ' ' + ${uzivatel.prijmeni}"></td>
+				<td th:text = "${uzivatel.ulice} + ', ' + ${uzivatel.mesto}"></td>
+				<td>
+					<a th:href = "@{/uzivatele/{id}(id=${uzivatel.id})}"
+					   class="btn btn-danger">
+						Odstranit
+					</a>
+					<a th:href = "@{/uzivatele/edit/{id}(id=${uzivatel.id})}"
+					   class="btn btn-warning text-white">
+						Editovat
+					</a>
+					<a th:href = "@{/pojisteni_list/user/{id}(id=${uzivatel.id})}"
+					   class="btn btn-success text-white">
+						Náhled pojištění
+					</a>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+</section>
+
+<section class="jumbotron jumbotron-fluid">
+	<div class="container py-3">
+		<nav aria-label="Stránkování">
+			<ul class="pagination justify-content-center">
+				<li class="page-item active">
+					<a class="page-link disabled" href="#" tabindex="-1" style="width: 90px;">Předchozí</a>
+				</li>
+				<li class="page-item active"><a class="page-link" href="#">1</a></li>
+				<li class="page-item">
+					<a class="page-link" href="#">2 <span class="sr-only"></span></a>
+				</li>
+				<li class="page-item"><a class="page-link" href="#">3</a></li>
+				<li class="page-item">
+					<a class="page-link text-center" href="#" style="width: 90px;">Další</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

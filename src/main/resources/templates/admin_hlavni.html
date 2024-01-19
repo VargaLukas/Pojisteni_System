@@ -1,0 +1,92 @@
+<html lang="cs-cz" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <title>Admin - hlavní stránka</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+
+<section class="jumbotron jumbotron-fluid">
+    <div class="container py-3">
+        <nav class="navbar navbar-expand-md bg-dark py-3">
+            <div class="container-fluid">
+                <a th:href="@{/index}" class="navbar-brand btn btn-outline-secondary text-white">PojištěníApp</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#obsah-navigacni-listy">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-center" id="obsah-navigacni-listy">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a th:href="@{/o_aplikaci}" class="nav-link text-white active">O aplikaci</a>
+                        </li>
+                        <li class="nav-item">
+                            <a th:href="@{/uzivatele}" class="nav-link text-white">Pojištěnci</a>
+                        </li>
+                        <li class="nav-item">
+                            <a th:href="@{/prehled_pojisteni}" class="nav-link text-white">Pojištění</a>
+                        </li>
+                        <li class="nav-item">
+                            <a th:href="@{/pojisteni_list/nove}" class="nav-link text-white">Nové pojištění</a>
+                        </li>
+                        <li class="nav-item">
+                            <a th:href="@{/udalosti}" class="nav-link text-white">Události</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="collapse navbar-collapse justify-content-end" id="administrace-uctu">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="btn btn-outline-secondary text-white" th:href="@{/admin_hlavni}" type="submit">Admin</a>&nbsp;
+                        </li>
+                        <li class="nav-item">
+                            <button class="btn btn-outline-secondary text-white" type="submit">Přihlásit</button>&nbsp;
+                        </li>
+                        <li class="nav-item">
+                            <button class="btn btn-outline-secondary text-white" type="submit">Odhlásit se</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</section>
+
+<section class="jumbotron jumbotron-fluid">
+    <div class="container py-4">
+        <div class="card py-2 bg-light">
+            <div class="card py-4 m-4 text-center text-white bg-secondary">
+                <h4><strong>Vítejte v Admin účtu aplikace PojištěníApp!</strong></h4>
+                <p style="text-align: justify;" class="m-2">
+                    Ve svém administrátorském účtu můžete prohlížet základní elementy aplikace a to - přehled nabízených typů
+                    pojištění včetně formuláře o nahlášení pojistné události; celkový seznam evidovaných pojištěnců v databázi
+                    včetně jejich osobních údajů a zřízených typů pojištění; můžete také editovat osobní údaje pojištěnců, jejich
+                    pojištění, případně odstranit jejich pojištění; nebo také odstranit jejich evidenci z databáze.</p>
+                <p style="text-align: justify;" class="m-2">
+                    Dbejte na uchovaní svých přihlašovacích údajů a uchovávejte je na bezpečném místě. V případě úniků dat by
+                    jste mohli být trestně stíháni. Z toho důvodu prosím <strong>NESDÍLEJTE</strong> své přihlašovací údaje s
+                    třetími stranami!
+                </p>
+                <p style="text-align: justify;" class="m-2">
+                    Pro základní administrátorskou obsluhu aplikace se můžete navigovat prostřednictvím <strong>tlačítek níže</strong>,
+                    nebo také pomocí položek v <strong>navigační liště výše</strong>.
+                </p>
+            </div>
+            <div class="container py-2 m-2">
+                <a th:href="@{/o_aplikaci}" class="btn btn-secondary" style="width: 115px;">O aplikaci</a>
+                <a th:href="@{/uzivatele}" class="btn btn-secondary g-2" style="width: 115px;">Pojištěnci</a>
+                <a th:href="@{/prehled_pojisteni}" class="btn btn-secondary g-2" style="width: 115px;">Pojištění</a>
+                <a th:href="@{/pojisteni_list/nove}" class="btn btn-secondary g-2" style="width: 135px;">Nové pojištění</a>
+                <a th:href="@{/udalosti}" class="btn btn-secondary g-2" style="width: 115px;">Události</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

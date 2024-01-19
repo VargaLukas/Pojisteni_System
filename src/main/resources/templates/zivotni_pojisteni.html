@@ -1,0 +1,200 @@
+<html lang="cs-cz" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Životní pojištění</title>
+</head>
+<body>
+
+<section class="jumbotron jumbotron-fluid">
+    <div class="container py-3">
+        <nav class="navbar navbar-expand-md bg-dark py-3">
+            <div class="container-fluid">
+                <a th:href="@{/index}" class="navbar-brand btn btn-outline-secondary text-white">PojištěníApp</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#obsah-navigacni-listy">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-center" id="obsah-navigacni-listy">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a th:href="@{/o_aplikaci}" class="nav-link text-white">O aplikaci</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-white">Moje pojištění</a>
+                        </li>
+                        <li class="nav-item">
+                            <a th:href="@{/prehled_pojisteni}" class="nav-link text-white">Pojištění</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-white">Historie plateb</a>
+                        </li>
+                        <li class="nav-item">
+                            <a th:href="@{/udalosti}" class="nav-link text-white">Události</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="collapse navbar-collapse justify-content-end" id="administrace-uctu">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <button class="btn btn-outline-secondary text-white" type="submit">Přihlásit</button>&nbsp;
+                        </li>
+                        <li class="nav-item">
+                            <button class="btn btn-outline-secondary text-white" type="submit">Registrovat</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</section>
+
+<section class="jumbotron jumbotron-fluid">
+    <div class="container py-2">
+        <div class="card">
+            <h4 class="card-header"><strong>Přehled nabízeného pojištění dle typu</strong></h4>
+            <div class="card-body">
+                <a class="btn btn-secondary text-white m-auto" type="button" th:href="@{/pojisteni_majetku}">Pojištění majetku</a>
+                <a class="btn btn-secondary text-white m-1" type="button" th:href="@{/pojisteni_domacnosti}">Pojištění domácnosti</a>
+                <a class="btn btn-secondary text-white m-auto" type="button" th:href="@{/pojisteni_bytu}">Pojištění bytu</a>
+                <a class="btn btn-secondary text-white m-1 active" type="button" href="#">Životní pojištění</a>
+                <a class="btn btn-secondary text-white" type="button" th:href="@{/pojisteni_vozidla}">Pojištění vozidla</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container py-2">
+        <div class="card">
+            <h5 class="card header p-2 bg-light"><strong>Životní pojištění:</strong></h5>
+            <div class="card-body">
+                <p style="text-align: justify;">
+                    Životní pojištění je pojistná smlouva mezi pojistníkem (klientem) a pojistitelem (pojišťovnou), ve které se
+                    pojistitel zavazuje zaplatit určenou peněžní částku pojištěné osobě v případě jejího dožití a obmyšlené osobě
+                    v případě smrti, pojištěné osoby. Součástí životního pojištění mohou být připojištění jako pojištění pracovní
+                    neschopnosti, doby nezbytného léčení úrazu, trvalé následky úrazu, za hospitalizace, v případě invalidity 1., 2.
+                    nebo 3. stupně, závažných onemocnění a dalších připojištění. Pojištěný platí za tuto smlouvu v pravidelných
+                    dohodnutých intervalech. Pro více informací o nabízených službách pojištění majetku, viz tabulka níže.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container py-2">
+        <div class="card">
+            <h5 class="card-header p-2"><strong>Přehled limitů balíčků pro životní pojištění</strong></h5>
+            <div class="card-body">
+                <table class="table table-border">
+                    <thead>
+                    <tr style="height: 50px; vertical-align: middle;">
+                        <td class="h4"><strong>Sjednané služby</strong></td>
+                        <td class="h4"><strong>Ideal</strong></td>
+                        <td class="h4"><strong>Excelent</strong></td>
+                        <td class="h4"><strong>VIP</strong></td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr style="height: 100px; vertical-align: middle;">
+                        <td><h5><strong>Úraz:</strong></h5> bolestné při drobném / závažnějším úrazu s následky</td>
+                        <td>max. 25 tis. Kč</td>
+                        <td>max. 55 tis. Kč</td>
+                        <td><img th:src="@{/images/tick.png}" style="width: 45px;" alt="tick"></td>
+                    </tr>
+                    <tr style="height: 100px; vertical-align: middle;">
+                        <td><h5><strong>Závažná onemocnění:</strong></h5> rakovina, mrtvice, srdeční infarkt, roztroušená skleróza, apod.</td>
+                        <td>max. 45 tis. Kč</td>
+                        <td><img th:src="@{/images/tick.png}" style="width: 45px;" alt="tick"></td>
+                        <td><img th:src="@{/images/tick.png}" style="width: 45px;" alt="tick"></td>
+                    </tr>
+                    <tr style="height: 100px; vertical-align: middle;">
+                        <td><h5><strong>Pojištění dětí:</strong></h5> úrazy, infekční nemoce, epilepsie, nadváha, zánět mozku, zánět mozkových blan apod.</td>
+                        <td>max. 40 tis. Kč</td>
+                        <td><img th:src="@{/images/tick.png}" style="width: 45px;" alt="tick"></td>
+                        <td><img th:src="@{/images/tick.png}" style="width: 45px;" alt="tick"></td>
+                    </tr>
+                    <tr style="height: 100px; vertical-align: middle;">
+                        <td><h5><strong>Trvalé následky úrazu:</strong></h5> ztráta končetiny, změna hybnosti pohybu, tělesné poškození apod.</td>
+                        <td><img th:src="@{/images/cross.png}" style="width: 45px;" alt="cross"></td>
+                        <td>max. 100 tis. Kč</td>
+                        <td><img th:src="@{/images/tick.png}" style="width: 45px;" alt="tick"></td>
+                    </tr>
+                    <tr style="height: 100px; vertical-align: middle;">
+                        <td><h5><strong>Závažné zdravotní následky nemoci nebo úrazu:</strong></h5> cukrovka, Alzheimerova choroba, encefalitida, meningitida apod.</td>
+                        <td><img th:src="@{/images/cross.png}" style="width: 45px;" alt="cross"></td>
+                        <td>max. 150 tis. Kč</td>
+                        <td>max. 300 tis. Kč</td>
+                    </tr>
+                    <tr style="height: 100px; vertical-align: middle;">
+                        <td><h5><strong>Pracovní neschopnost a hospitalizace:</strong></h5> nemoce dýchací, svalové, trávící, močové, pohlavní soustavy a pod.</td>
+                        <td>max. 45 tis. Kč</td>
+                        <td>max. 80 tis. Kč</td>
+                        <td>max. 200 tis. Kč</td>
+                    </tr>
+                    <tr style="height: 100px; vertical-align: middle;">
+                        <td><h5><strong>Invalidita:</strong></h5> ztráta končetiny, lymská borelióza, epilepsie, roztroušená skleróza apod.</td>
+                        <td><img th:src="@{/images/cross.png}" style="width: 45px;" alt="cross"></td>
+                        <td>max 250 tis. Kč</td>
+                        <td><img th:src="@{/images/tick.png}" style="width: 45px;" alt="tick"></td>
+                    </tr>
+                    <tr style="height: 100px; vertical-align: middle;">
+                        <td><h5><strong>Smrt:</strong></h5> náklady na pohřeb, dědické řízení, nesplacené zůstatky úvěrů, hypoték apod</td>
+                        <td>max. 50 tis. Kč</td>
+                        <td>max. 100 tis. Kč</td>
+                        <td>max. 200 tis. Kč</td>
+                    </tr>
+                    <tr style="height: 100px; vertical-align: middle;">
+                        <td><h5><strong>Pojištění dlouhodobé péče:</strong></h5> ztráta soběstačnosti, mobility, orientace, komunikace, stravování apod.</td>
+                        <td>max. 50 tis. Kč</td>
+                        <td>max. 100 tis. Kč</td>
+                        <td><img th:src="@{/images/tick.png}" style="width: 45px;" alt="tick"></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <div class="container py-3">
+                    <button class="btn btn-primary m-1">Zadat poptávku</button>
+                    <a class="btn btn-danger m-1" th:href="@{/prehled_pojisteni}">Zrušit náhled</a>
+                </div><br>
+
+                <section class="jumbotron jumbotron-fluid">
+                    <div class="container py-3">
+                        <nav aria-label="Stránkování">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item">
+                                    <a class="page-link text-center" th:href="@{/pojisteni_bytu}" tabindex="-1" style="width: 100px;">Předchozí</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" th:href="@{/pojisteni_majetku}">1</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" th:href="@{/pojisteni_domacnosti}">2 <span class="sr-only"></span></a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" th:href="@{/pojisteni_bytu}">3</a>
+                                </li>
+                                <li class="page-item active">
+                                    <a class="page-link" href="#">4</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" th:href="@{/pojisteni_vozidla}">5</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link text-center" th:href="@{/pojisteni_vozidla}" style="width: 90px;">Další</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
+

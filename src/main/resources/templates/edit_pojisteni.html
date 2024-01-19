@@ -1,0 +1,182 @@
+<html lang="cs-cz" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Editovat pojištění</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<section class="jumbotron jumbotron-fluid">
+    <div class="container py-3">
+        <nav class="navbar navbar-expand-md bg-dark py-3">
+            <div class="container-fluid">
+                <a th:href="@{/index}" class="navbar-brand btn btn-outline-secondary text-white">PojištěníApp</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#obsah-navigacni-listy">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-center" id="obsah-navigacni-listy">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a th:href="@{/o_aplikaci}" class="nav-link text-white active">O aplikaci</a>
+                        </li>
+                        <li class="nav-item">
+                            <a th:href="@{/uzivatele}" class="nav-link text-white">Pojištěnci</a>
+                        </li>
+                        <li class="nav-item">
+                            <a th:href="@{/prehled_pojisteni}" class="nav-link text-white">Pojištění</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-white active">Nové pojištění</a>
+                        </li>
+                        <li class="nav-item">
+                            <a th:href="@{/udalosti}" class="nav-link text-white">Události</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="collapse navbar-collapse justify-content-end" id="administrace-uctu">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <button class="btn btn-outline-secondary text-white" type="submit">Admin</button>&nbsp;
+                        </li>
+                        <li class="nav-item">
+                            <button class="btn btn-outline-secondary text-white" type="submit">Registrovat</button>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </nav>
+    </div>
+</section>
+
+<section class="jumbotron jumbotron-fluid">
+    <div class="container py-2">
+        <p class="h4"><strong>Editovat pojištění pojištěnci</strong></p><br>
+        <div class="card bg-light">
+            <div class="card-body">
+                <form th:object="${pojisteni}" th:action="@{/pojisteni_list/{id}(id=${pojisteni.id})}" method="POST">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label><strong>Pojištěnec</strong></label>
+                                <select
+                                        name="uzivatel"
+                                        class="form-select">
+                                    <option
+                                            th:each="uzivatel: ${uzivatelList}"
+                                            th:value="${uzivatel.id}"
+                                            th:text="${uzivatel.jmeno + ' ' + uzivatel.prijmeni}">
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label><strong>Typ pojištění</strong></label>
+                                    <input class="form-control" list="typlistOptions" id="typList" placeholder="Zadejte typ pojištění"
+                                           th:field="*{typ}">
+
+                                    <datalist id="typlistOptions">
+                                        <option value="Pojištění majetku">
+                                        <option value="Pojištění domácnosti">
+                                        <option value="Pojištění bytu">
+                                        <option value="Životní pojištění">
+                                        <option value="Pojištění vozidla">
+                                    </datalist>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group py-3">
+                                <label><strong>Předmět pojištění</strong></label>
+                                <!--NOVA SKUSOBNA CAST-->
+                                    <input class="form-control" list="predmetlistOptions" id="predmetList" placeholder="Zadejte předmět pojištění"
+                                           th:field="*{predmet}">
+
+                                    <datalist id="predmetlistOptions">
+                                        <option value="Rodinný dům">
+                                        <option value="Byt">
+                                        <option value="Domácnost">
+                                        <option value="Garáž">
+                                        <option value="Cennosti">
+                                        <option value="Spotřebiče">
+                                        <option value="Životní pojistka">
+                                        <option value="Drobné závady">
+                                        <option value="Pojistka na blbost">
+                                    </datalist>
+
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="form-group py-3">
+                                <label><strong>Částka</strong></label>
+                                <input
+                                        type="number"
+                                        name= "castka"
+                                        th:field="*{castka}"
+                                        class="form-control"
+                                        placeholder="1.000.000 Kč"
+                                        step = "1000"
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label><strong>Platnost od</strong></label>
+                                <input
+                                        type="text"
+                                        onfocus="(this.type='date')"
+                                        onblur="(this.type='text')"
+                                        name="platnost-od"
+                                        class="form-control"
+                                        placeholder="1.1.2666"
+                                        th:field="*{platnostOd}"
+                                        required
+                                />
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label><strong>Platnost do</strong></label>
+                                <input
+                                        type="text"
+                                        onfocus="(this.type='date')"
+                                        onblur="(this.type='text')"
+                                        name="platnost-do"
+                                        class="form-control"
+                                        th:field="*{platnostDo}"
+                                        placeholder="31.12.2666"
+                                        required
+                                />
+                            </div>
+                        </div>
+
+                        <div class="py-4 justify-content-center">
+                            <button type="submit" class = "btn btn-primary" style="width: 105px;">
+                                Uložit
+                            </button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

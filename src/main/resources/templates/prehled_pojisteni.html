@@ -1,0 +1,133 @@
+<html lang="cs-cz" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Pojištění</title>
+</head>
+<body>
+
+<section class="jumbotron jumbotron-fluid">
+    <div class="container py-3">
+        <nav class="navbar navbar-expand-md bg-dark py-3">
+            <div class="container-fluid">
+                <a th:href="@{/index}" class="navbar-brand btn btn-outline-secondary text-white">PojištěníApp</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#obsah-navigacni-listy">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-center" id="obsah-navigacni-listy">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a th:href="@{/o_aplikaci}" class="nav-link text-white">O aplikaci</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-white">Moje pojištění</a>
+                        </li>
+                        <li class="nav-item">
+                            <a th:href="@{/prehled_pojisteni}" class="nav-link text-white">Pojištění</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-white">Historie plateb</a>
+                        </li>
+                        <li class="nav-item">
+                            <a th:href="@{/udalosti}" class="nav-link text-white">Události</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="collapse navbar-collapse justify-content-end" id="administrace-uctu">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <button class="btn btn-outline-secondary text-white" type="submit">Přihlásit</button>&nbsp;
+                        </li>
+                        <li class="nav-item">
+                            <button class="btn btn-outline-secondary text-white" type="submit">Registrovat</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</section>
+
+<section class="jumbotron jumbotron-fluid">
+    <div class="container py-2">
+        <div class="card">
+            <h4 class="card-header"><strong>Pojištění nemovitostí včetně domů, bytů, domácností a majetku s nimi spojených</strong></h4>
+            <div class="card-body">
+                <h4 class="card-title"><strong>Pojištění majetku</strong></h4>
+                <p class="card-text" style="text-align: justify;">Pojištění majetku zahrnuje krytí celé řady rizik, která lze rozdělit podle jejich důsledků na rizika,
+                    při jejichž realizaci dochází ke vzniku: přímých věcných škod (rizika živelných pohrom, riziko havárie,
+                    rizika odcizení a vandalství, apod.), finančních ztrát (rizika přerušení provozu, rizika úvěrovová, apod.).
+                    Pro více informací o nabízených službách pojištění majetku, klikněte na tlačítko níže.
+                </p>
+                <a class="btn btn-secondary text-white" th:href="@{/pojisteni_majetku}">Více informací</a>
+            </div>
+        </div><br>
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title"><strong>Pojištění domácnosti</strong></h4>
+                <p class="card-text" style="text-align: justify;">Pojištění domácnosti patří do skupiny pojištění majetku občanů. Zahrnuje téměř veškeré vybavení a další položky,
+                    které tvoří domácnost i Váš útulný domov. Mezi položky, které nemyslitelně patří do vybavení domácnosti můžeme
+                    zahrnout - nábytek, elektrické spotřebiče, cennosti, nebo také peníze. Pojištění kryje škody na vybavení domácnosti a
+                    na věcech, které jsou její součástí. Ochraňuje movité věci v místě pojištění pro případ zničení nebo například krádeže.
+                    Pro více informací o nabízených službách pojištění majetku, klikněte na tlačítko níže.
+                </p>
+                <a class="btn btn-secondary text-white" th:href="@{/pojisteni_domacnosti}">Více informací</a>
+            </div>
+        </div><br>
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title"><strong>Pojištění bytu</strong></h4>
+                <p class="card-text" style="text-align: justify;">Pojištění bytu spadá do kategorie pojištění nemovistosti a zajišťuje pomoc v situacích,
+                    jako je požár, výbuch, úder blesku, poškození vodovodu, zatečení srážek, krádež i vandalismus. Pojištění nemovitosti /
+                    bytu chrání vše, co je součástí vybavení domácnosti - stěny, okna, podlahy, dveře nebo také kotel. Pojistit lze také
+                    vedlejší stavby, které mohou být součástí domácnosti jako například garáž, bazén, nebo sauna.
+                    Pro více informací o nabízených službách pojištění majetku, klikněte na tlačítko níže.
+                </p>
+                <a class="btn btn-secondary text-white" th:href="@{/pojisteni_bytu}">Více informací</a>
+            </div>
+        </div>
+    </div>
+</section><br>
+
+<section class="jumbotron jumbotron-fluid">
+    <div class="container py-2">
+        <div class="card">
+            <h4 class="card-header"><strong>Pojištění fyzických osob včetně asistenčních služeb spojených se zdravotnickou péčí</strong></h4>
+            <div class="card-body">
+                <h4 class="card-title"><strong>Životní pojištění</strong></h4>
+                <p class="card-text" style="text-align: justify;">Životní pojištění je pojistná smlouva mezi pojistníkem (klientem) a pojistitelem (pojišťovnou), ve které se
+                    pojistitel zavazuje zaplatit určenou peněžní částku pojištěné osobě v případě jejího dožití a obmyšlené osobě
+                    v případě smrti, pojištěné osoby. Součástí životního pojištění mohou být připojištění jako pojištění pracovní
+                    neschopnosti, doby nezbytného léčení úrazu, trvalé následky úrazu, za hospitalizace, v případě invalidity 1., 2.
+                    nebo 3. stupně, závažných onemocnění a dalších připojištění. Pojištěný platí za tuto smlouvu v pravidelných
+                    dohodnutých intervalech. Pro více informací o nabízených službách pojištění majetku, klikněte na tlačítko níže.
+                </p>
+                <a class="btn btn-secondary text-white" th:href="@{/zivotni_pojisteni}">Více informací</a>
+            </div>
+        </div>
+    </div>
+</section><br>
+
+<section class="jumbotron jumbotron-fluid">
+    <div class="container py-2">
+        <div class="card">
+            <h4 class="card-header"><strong>Pojištění motorových vozidel a asistenčních služeb s ním spojených, včetně pojištění zavazadel</strong></h4>
+            <div class="card-body">
+                <h4 class="card-title"><strong>Pojištění vozidla</strong></h4>
+                <p class="card-text" style="text-align: justify;">Zákonné pojištění vozidla je pojištění, které kryje škody způsobené na zdraví, životě a majetku způsobené
+                    Vaším vozidlem dalším osobám. Pojištění kryje také vzniklé ekologické škody a ušlý zisk. Běžnou součástí
+                    povinného ručení jsou i asistenční služby řidiči. Důležitá je také výše nastaveného limitu pojistného krytí.
+                    Pro více informací o nabízených službách pojištění majetku, klikněte na tlačítko níže.
+                </p>
+                <a class="btn btn-secondary text-white" th:href="@{/pojisteni_vozidla}">Více informací</a>
+            </div>
+        </div>
+    </div>
+</section><br>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
